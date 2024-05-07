@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import ProfileCard from "./components/ProfileCard";
+import List from "./components/List";
+
+const profile = {
+  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB53FRQ-7JhipkxgkX2njAf4unvM3AU7puUGfmQUbjpA&s",
+  name: "Машнов Вячеслав Валерьевич",
+};
+
+const competenceList = ["CSS", "SQL", "HTML", "JS"];
+
+const technologyList = [
+  "React",
+  "Node",
+  "Server",
+  "DI",
+  "QA",
+  "SCRUM",
+  "Agile",
+  "Git",
+  "UX/UI",
+  "Microservices",
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="container">
+      <ProfileCard url={profile.img} name={profile.name} />
+      <List items={competenceList} title={"Мои компетенции"} />
+      <List items={technologyList} title={"Что я хочу изучить"} />
+    </div>
+  );
 }
 
-export default App
+export default App;
